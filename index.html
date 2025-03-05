@@ -121,7 +121,7 @@
         <p>📅 <span class="highlight">יום חמישי</span></p>
         <p>🕘 <span class="highlight">21:00</span></p>
         <p>📍 <span class="highlight">רחוב שמואל וינברג 27</span></p>
-        <p>🎶 ריקודים, תחפושות, הפתעות - בואו לקרוע את הרחבה 🎶</p>
+        <p>🎶 ריקודים, תחפושות, הפתעות - בואו לקרוע את הרחב 🎶</p>
 
         <input type="text" id="nameInput" placeholder="הכנס את שמך כאן">
         <br>
@@ -149,14 +149,16 @@
                     body: JSON.stringify(guestData)
                 });
 
+                let textResponse = await res.text();
+
                 if (res.ok) {
                     document.getElementById("responseMessage").innerText = `תודה ${name}! סימנו אותך כ- "${response}"`;
                     document.getElementById("responseMessage").style.display = "block";
                 } else {
-                    alert("❌ שגיאה בשליחת הנתונים!");
+                    alert("❌ שגיאה בשליחת הנתונים! " + textResponse);
                 }
             } catch (error) {
-                alert("❌ שגיאה בשרת");
+                alert("❌ שגיאה בשרת: " + error.message);
             }
         }
     </script>
