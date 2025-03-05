@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎭 מסיבת פורים מטורפת 🎭</title>
+    <title>🎭 מסיבת פורים מטורפת! 🎭</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
         body {
             font-family: 'Fredoka One', cursive;
             text-align: center;
-            background: radial-gradient(circle, #ff00ff, #ffcc00, #00ccff, #ff3300);
+            background: linear-gradient(135deg, #ffcc00, #ff66b2, #66ccff);
             background-size: 400% 400%;
-            animation: gradientBG 8s infinite alternate;
+            animation: gradientBG 10s infinite alternate;
             color: white;
             padding: 20px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
             position: relative;
         }
@@ -24,119 +29,136 @@
             100% { background-position: 100% 100%; }
         }
 
-        .invitation {
+        .container {
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
-            max-width: 600px;
-            margin: auto;
-            animation: fadeIn 2s ease-in-out;
+            border-radius: 15px;
+            box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
-            border: 5px solid white;
+            width: 90%;
+            max-width: 550px;
             position: relative;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 2s ease-in-out;
         }
 
         h1 {
             font-size: 40px;
+            margin-bottom: 10px;
             color: #ffcc00;
-            text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.9);
-            animation: neonFlicker 1.5s infinite alternate;
-        }
-
-        @keyframes neonFlicker {
-            from { text-shadow: 0px 0px 15px #ff00ff; }
-            to { text-shadow: 0px 0px 30px #ffff00; }
+            text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
         }
 
         p {
-            font-size: 22px;
+            font-size: 20px;
             margin: 10px 0;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .highlight {
             font-weight: bold;
-            font-size: 26px;
+            font-size: 24px;
             color: #ffcc00;
-            text-shadow: 2px 2px 15px rgba(255, 255, 255, 1);
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
         }
 
-        .button {
-            margin-top: 20px;
+        input {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .btn {
             display: inline-block;
-            padding: 15px 35px;
-            font-size: 24px;
-            background: linear-gradient(45deg, #ff00ff, #ff6600, #ffff00);
-            color: white;
+            padding: 14px 20px;
+            font-size: 18px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-            animation: pulse 1.5s infinite;
+            font-weight: bold;
+            margin: 5px;
+            color: white;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); }
-            50% { transform: scale(1.1); box-shadow: 0 0 30px rgba(255, 255, 255, 1); }
-            100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); }
+        .btn-yes {
+            background: linear-gradient(90deg, #00c853, #64dd17);
+            box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.7);
         }
 
-        .button:hover {
-            background: #ffcc00;
-            color: black;
-            box-shadow: 0 0 30px white;
-            transform: scale(1.2);
+        .btn-no {
+            background: linear-gradient(90deg, #d50000, #ff1744);
+            box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7);
         }
 
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: confettiFall 5s infinite linear;
+        .btn-maybe {
+            background: linear-gradient(90deg, #ff9100, #ffea00);
+            box-shadow: 0px 0px 10px rgba(255, 165, 0, 0.7);
         }
 
-        @keyframes confettiFall {
-            0% { transform: translateY(-100vh) rotate(0deg); }
-            100% { transform: translateY(100vh) rotate(720deg); }
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 20px white;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
+        .message {
+            font-size: 22px;
+            margin-top: 15px;
+            display: none;
+            color: #00ffcc;
         }
     </style>
 </head>
 <body>
 
-    <div class="invitation">
-        <h1>🎭 מסיבת פורים מטורפת 🎭</h1>
-        <p>אתם מוזמנים לחגיגה הכי פסיכית בעיר 🥳</p>
+    <div class="container">
+        <h1>🎭 מסיבת פורים מטורפת! 🎭</h1>
+        <p>אתם מוזמנים לחגיגה הכי פסיכית בעיר! 🥳</p>
         <p>📅 <span class="highlight">יום חמישי</span></p>
         <p>🕘 <span class="highlight">21:00</span></p>
         <p>📍 <span class="highlight">רחוב שמואל וינברג 27</span></p>
-        <p>🎶 ריקודים, תחפושות, הפתעות - בואו לקרוע את הרחבה 🎶</p>
-        <button class="button">✅ אני מגיע!</button>
+        <p>🎶 ריקודים, תחפושות, הפתעות - בואו לקרוע את הרחבה! 🎶</p>
+
+        <input type="text" id="nameInput" placeholder="הכנס את שמך כאן">
+        <br>
+        <button class="btn btn-yes" onclick="submitResponse('מגיע')">✅ אני מגיע!</button>
+        <button class="btn btn-no" onclick="submitResponse('לא מגיע')">❌ לא מגיע!</button>
+        <button class="btn btn-maybe" onclick="submitResponse('אולי מגיע')">🤔 אולי מגיע!</button>
+
+        <p id="responseMessage" class="message"></p>
     </div>
 
     <script>
-        // יצירת אפקט קונפטי דינמי
-        function createConfetti() {
-            for (let i = 0; i < 50; i++) {
-                let confetti = document.createElement("div");
-                confetti.className = "confetti";
-                confetti.style.left = Math.random() * 100 + "vw";
-                confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
-                confetti.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
-                document.body.appendChild(confetti);
-                setTimeout(() => confetti.remove(), 5000);
+        function submitResponse(response) {
+            let name = document.getElementById("nameInput").value.trim();
+            if (name === "") {
+                alert("נא להזין שם!");
+                return;
             }
+
+            // שמירת הנתונים בלוקאלי
+            localStorage.setItem("partyName", name);
+            localStorage.setItem("partyResponse", response);
+
+            let message = `תודה ${name}! סימנו אותך כ- "${response}"`;
+            document.getElementById("responseMessage").innerText = message;
+            document.getElementById("responseMessage").style.display = "block";
         }
 
-        setInterval(createConfetti, 1000);
+        // שחזור נתונים אם המשתמש חוזר לעמוד
+        window.onload = function() {
+            let savedName = localStorage.getItem("partyName");
+            let savedResponse = localStorage.getItem("partyResponse");
+            if (savedName && savedResponse) {
+                document.getElementById("nameInput").value = savedName;
+                document.getElementById("responseMessage").innerText = `תודה ${savedName}! סימנו אותך כ- "${savedResponse}"`;
+                document.getElementById("responseMessage").style.display = "block";
+            }
+        };
     </script>
 
 </body>
