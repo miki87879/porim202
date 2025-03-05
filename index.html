@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎭 מסיבת פורים מטורפת! 🎭</title>
+    <title>🎭 מסיבת פורים מטורפת 🎭</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
@@ -116,12 +116,12 @@
 <body>
 
     <div class="container">
-        <h1>🎭 מסיבת פורים מטורפת! 🎭</h1>
-        <p>אתם מוזמנים לחגיגה הכי פסיכית בעיר! 🥳</p>
+        <h1>🎭 מסיבת פורים מטורפת 🎭</h1>
+        <p>אתם מוזמנים לחגיגה הכי מטורפת בעיר 🥳</p>
         <p>📅 <span class="highlight">יום חמישי</span></p>
         <p>🕘 <span class="highlight">21:00</span></p>
         <p>📍 <span class="highlight">רחוב שמואל וינברג 27</span></p>
-        <p>🎶 ריקודים, תחפושות, הפתעות - בואו לקרוע את הרחבה! 🎶</p>
+        <p>🎶 ריקודים, תחפושות, הפתעות - בואו לקרוע את הרחבה 🎶</p>
 
         <input type="text" id="nameInput" placeholder="הכנס את שמך כאן">
         <br>
@@ -133,32 +133,32 @@
     </div>
 
     <script>
-        function submitResponse(response) {
+        async function submitResponse(response) {
             let name = document.getElementById("nameInput").value.trim();
-            if (name === "") {
+            if (!name) {
                 alert("נא להזין שם!");
                 return;
             }
 
-            // שמירת הנתונים בלוקאלי
-            localStorage.setItem("partyName", name);
-            localStorage.setItem("partyResponse", response);
+            const guestData = { name, status: response };
 
-            let message = `תודה ${name}! סימנו אותך כ- "${response}"`;
-            document.getElementById("responseMessage").innerText = message;
-            document.getElementById("responseMessage").style.display = "block";
-        }
+            try {
+                let res = await fetch("https://script.google.com/macros/s/AKfycby8b960SBoZoLmDaHC1OZlp5u2kzr6cr2YKjK3XdU9H1ge5Hfl9D5XTunzM88K3sCc/exec", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(guestData)
+                });
 
-        // שחזור נתונים אם המשתמש חוזר לעמוד
-        window.onload = function() {
-            let savedName = localStorage.getItem("partyName");
-            let savedResponse = localStorage.getItem("partyResponse");
-            if (savedName && savedResponse) {
-                document.getElementById("nameInput").value = savedName;
-                document.getElementById("responseMessage").innerText = `תודה ${savedName}! סימנו אותך כ- "${savedResponse}"`;
-                document.getElementById("responseMessage").style.display = "block";
+                if (res.ok) {
+                    document.getElementById("responseMessage").innerText = `תודה ${name}! סימנו אותך כ- "${response}"`;
+                    document.getElementById("responseMessage").style.display = "block";
+                } else {
+                    alert("❌ שגיאה בשליחת הנתונים!");
+                }
+            } catch (error) {
+                alert("❌ שגיאה בשרת");
             }
-        };
+        }
     </script>
 
 </body>
