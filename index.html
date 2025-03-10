@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎭 מסיבת פורים מטורפ 🎭</title>
+    <title>הזמנה למסיבת פורים</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&display=swap');
 
         body {
-            font-family: 'Fredoka One', cursive;
+            font-family: 'Heebo', sans-serif;
             text-align: center;
-            background: linear-gradient(135deg, #ffcc00, #ff66b2, #66ccff);
-            background-size: 400% 400%;
-            animation: gradientBG 10s infinite alternate;
+            background: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad') no-repeat center center/cover;
             color: white;
             padding: 20px;
             margin: 0;
@@ -20,148 +18,71 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
+            flex-direction: column;
+            backdrop-filter: blur(6px);
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.75);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
             width: 90%;
-            max-width: 550px;
-            position: relative;
-            border: 3px solid rgba(255, 255, 255, 0.5);
-            animation: fadeIn 2s ease-in-out;
+            max-width: 500px;
+            text-align: center;
         }
 
         h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-            color: #ffcc00;
-            text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #FFD700;
         }
 
         p {
-            font-size: 20px;
+            font-size: 18px;
+            font-weight: 300;
             margin: 10px 0;
-            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
         }
 
         .highlight {
-            font-weight: bold;
-            font-size: 24px;
-            color: #ffcc00;
-            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
-        }
-
-        input {
-            width: 80%;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            font-size: 18px;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-weight: bold;
-            margin: 5px;
-            color: white;
-        }
-
-        .btn-yes {
-            background: linear-gradient(90deg, #00c853, #64dd17);
-            box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.7);
-        }
-
-        .btn-no {
-            background: linear-gradient(90deg, #d50000, #ff1744);
-            box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7);
-        }
-
-        .btn-maybe {
-            background: linear-gradient(90deg, #ff9100, #ffea00);
-            box-shadow: 0px 0px 10px rgba(255, 165, 0, 0.7);
-        }
-
-        .btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 0px 20px white;
-        }
-
-        .message {
+            font-weight: 700;
             font-size: 22px;
+            color: #FFD700;
+        }
+
+        .divider {
+            width: 60%;
+            height: 2px;
+            background: #FFD700;
+            margin: 15px auto;
+        }
+
+        .footer {
+            font-size: 14px;
+            opacity: 0.8;
             margin-top: 15px;
-            display: none;
-            color: #00ffcc;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>🎭 מסיבת פורים מטורפת🎭</h1>
-        <p>אתם מוזמנים לחגיגה הכי מטורפת  בעיר 🥳</p>
-        <p>📅 <span class="highlight">יום חמישי</span></p>
-        <p>🕘 <span class="highlight">21:00</span></p>
-        <p>📍 <span class="highlight">רחוב שמואל וינברג 27</span></p>
-        <p>🎶 ריקודים, תחפושות, הפתעות - בואו לקרוע את הרחבה 🎶</p>
+        <h1>🎭 מסיבת פורים הכי שווה בעיר 🎭</h1>
+        <div class="divider"></div>
+        
+        <p>חוגגים יחד בערב בלתי נשכח של שמחה, מוזיקה וריקודים 🥳</p>
+        
+        <p> <span class="highlight">יום חמישי</span></p>
+        <p>🕙 <span class="highlight">22:00</span></p>
+        <p>📍 <span class="highlight">בית משפחת ברנט, רחוב שמואל וינברג 27</span></p>
 
-        <input type="text" id="nameInput" placeholder="הכנס את שמך כאן">
-        <br>
-        <button class="btn btn-yes" onclick="submitResponse('מגיע')">✅ אני מגיע!</button>
-        <button class="btn btn-no" onclick="submitResponse('לא מגיע')">❌ לא מגיע!</button>
-        <button class="btn btn-maybe" onclick="submitResponse('אולי מגיע')">🤔 אולי מגיע!</button>
+        <p>🎶 מחכים לכם עד מתי? עד דלא ידע 🎶</p>
 
-        <p id="responseMessage" class="message"></p>
+        <div class="divider"></div>
+        <p class="footer">🎭 אז תכינו את התחפושות ותבואו לעשות שמח 🎉</p>
     </div>
-
-    <script>
-        async function submitResponse(response) {
-            let name = document.getElementById("nameInput").value.trim();
-            if (!name) {
-                alert("נא להזין שם!");
-                return;
-            }
-
-            const guestData = { name, status: response };
-
-            try {
-                let res = await fetch("https://script.google.com/macros/s/AKfycby8b960SBoZoLmDaHC1OZlp5u2kzr6cr2YKjK3XdU9H1ge5Hfl9D5XTunzM88K3sCc/exec", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(guestData)
-                });
-
-                let textResponse = await res.text();
-
-                if (res.ok) {
-                    document.getElementById("responseMessage").innerText = `תודה ${name}! סימנו אותך כ- "${response}"`;
-                    document.getElementById("responseMessage").style.display = "block";
-                } else {
-                    alert("❌ שגיאה בשליחת הנתונים! " + textResponse);
-                }
-            } catch (error) {
-                alert("❌ שגיאה בשרת: " + error.message);
-            }
-        }
-    </script>
 
 </body>
 </html>
